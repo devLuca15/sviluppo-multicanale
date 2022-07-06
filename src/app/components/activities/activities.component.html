@@ -1,0 +1,31 @@
+<div class="col-12 flex flex-row flex-wrap activitiesContainer">
+  <p-card
+    *ngFor="let at of attivita"
+    [header]="at.name"
+    [subheader]="at.type"
+    [style]="{ width: '300px' }"
+    styleClass="p-card-shadow"
+  >
+    <ng-template pTemplate="header">
+      <img alt="activityMap" src="assets/images/map.jpeg" />
+    </ng-template>
+
+    <div
+      class="my-3 flex flex flex-column align-items-start"
+      *ngIf="at.description"
+    >
+      <h3 class="m-0 font-bold">Descrizione attività:</h3>
+      <span>{{ at.description }}</span>
+    </div>
+
+    <div class="my-3 flex flex flex-column align-items-start">
+      <h3 class="m-0 font-bold">Data attività:</h3>
+      <span>{{ at.start_date | date: "MMM d, y, H:mm" }}</span>
+    </div>
+
+    <div class="my-3 flex flex flex-column align-items-start">
+      <h3 class="m-0 font-bold">Tempo in movimento:</h3>
+      <span>{{ getMovingTime(at.moving_time) }}</span>
+    </div>
+  </p-card>
+</div>

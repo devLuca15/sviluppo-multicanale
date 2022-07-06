@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap");
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+html {
+  font-size: 14px !important;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}

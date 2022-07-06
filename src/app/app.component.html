@@ -1,0 +1,64 @@
+<p-toast position="top-center" styleClass="custom-toast"></p-toast>
+<p-toast position="top-center"></p-toast>
+
+<div class="grid-nogutter">
+  <div class="col-12">
+    <p-tabView styleClass="w-full">
+      <p-tabPanel styleClass="tabAttivita" header="Attività">
+        <app-activities></app-activities>
+      </p-tabPanel>
+
+      <p-tabPanel styleClass="profilo" header="Profilo">
+        <app-profile></app-profile>
+      </p-tabPanel>
+
+      <i
+        *ngIf="isConnected"
+        (click)="openBlt()"
+        id="btnConnect"
+        class="bi bi-bluetooth"
+        style="
+          position: fixed;
+          top: 1.5rem;
+          right: 1.5rem;
+          font-size: 25px;
+          color: white;
+          cursor: pointer;
+        "
+        pBadge
+        severity="success"
+      ></i>
+
+      <i
+        *ngIf="!isConnected"
+        (click)="openBlt()"
+        id="btnConnect"
+        class="bi bi-bluetooth"
+        style="
+          position: fixed;
+          top: 1.5rem;
+          right: 1.5rem;
+          font-size: 25px;
+          color: white;
+          cursor: pointer;
+        "
+        pBadge
+        severity="warning"
+      ></i>
+
+      <i
+        (click)="batteryService()"
+        class="bi bi-arrow-clockwise"
+        style="
+          transition: 2.5s;
+          position: fixed;
+          top: 1.5rem;
+          right: 4rem;
+          font-size: 25px;
+          color: white;
+          cursor: pointer;
+        "
+      ></i>
+    </p-tabView>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+:host ::ng-deep .p-card {
+  margin: 0.5rem;
+}
+
+:host ::ng-deep .p-card .p-card-content {
+  padding: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .activitiesContainer {
+    justify-content: center;
+  }
+}
