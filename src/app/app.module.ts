@@ -13,8 +13,6 @@ import { StoreSelector } from './store/store-selector';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from './services/token.service';
 
-import { WebBluetoothModule } from '@manekinekko/angular-web-bluetooth';
-
 import { ActivitiesComponent } from './components/activities/activities.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
@@ -47,9 +45,6 @@ import { MessageService } from 'primeng/api';
       },
     }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    WebBluetoothModule.forRoot({
-      enableTracing: true, // or false, this will enable logs in the browser's console
-    }),
   ],
   providers: [StoreSelector, TokenService, MessageService],
   bootstrap: [AppComponent],

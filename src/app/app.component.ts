@@ -1,3 +1,5 @@
+/// <reference types="web-bluetooth" />
+
 import { Component, OnInit } from '@angular/core';
 
 import { Store } from '@ngxs/store';
@@ -41,26 +43,29 @@ export class AppComponent implements OnInit {
   openBlt() {
     console.log('connecting...');
 
-    navigator.bluetooth
-      .requestDevice({
-        acceptAllDevices: true,
-        optionalServices: [0x2a19, 0x2a20],
-      })
-      .then((d: any) => {
-        let device = d;
-        console.log('device:', device);
+    let mobileNavigatorObject: any = window.navigator;
+    if (mobileNavigatorObject && mobileNavigatorObject.bluetooth) {
+      navigator.bluetooth
+        .requestDevice({
+          acceptAllDevices: true,
+          optionalServices: [0x2a19, 0x2a20],
+        })
+        .then((d: any) => {
+          let device = d;
+          console.log('device:', device);
 
-        return device?.gatt?.connect();
-      })
-      .then((s: any) => {
-        console.log(s);
+          return device?.gatt?.connect();
+        })
+        .then((s: any) => {
+          console.log(s);
 
-        console.log(s?.device.id);
-        this.bangleServer = s;
-      })
-      .then(() => {
-        this.isConnected = true;
-      });
+          console.log(s?.device.id);
+          this.bangleServer = s;
+        })
+        .then(() => {
+          this.isConnected = true;
+        });
+    }
   }
 
   batteryService() {
